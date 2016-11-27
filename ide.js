@@ -1,19 +1,27 @@
-/* JavaScript code to add to cjs chrome extension for better coding 
- * environment in HackerRank
- */
+// Here You can type your custom JavaScript...
+var errorMessage = ' ';
+jQuery.fx.off = true;
 $(document).keydown(function (e) {
-    //console.log(e.keyCode);
-    if (e.keyCode == 20) {
-        $('button:contains(Run Code)').trigger("click");
-        console.log($('.error-output').html());
+    if (e.keyCode == 20) $('button:contains(Run Code)').trigger("click");
+});
+window.setInterval(function () {
+    //if ($(this).scrollTop() > 900) $(this).scrollTop('800');
+    if ($('.error-output').text() !== errorMessage) {
+        errorMessage = $('.error-output').text();
+        if (errorMessage !== ''){
+            placeDiv(500, 800);
+            console.log($('#output'));
+        }
     }
-});
-document.addEventListener("DOMNodeInserted", function (event) {
-    $(document).html('<div class="thisone">' + $("code").html() +
-        '</div>');
-    console.log(
-        "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
-    );
-    console.log($('.error-output').html());
-    $(document).scrollTop('813');
-});
+    
+    
+}, 100);
+
+function placeDiv(x_pos, y_pos) {
+  var d = document.getElementsByClassName('challenge-response container fs-container')[0];
+  console.log(d);
+  d.id = 'output';
+  d.style.position = "absolute";
+  d.style.left = x_pos+'px';
+  d.style.top = y_pos+'px';
+}
