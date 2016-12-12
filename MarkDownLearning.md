@@ -69,7 +69,7 @@ Horizontal rule after line break
 
 ## Github (not working-- added to issues)
 * issues: #2
-* pull-request: #3
+* pull-request: #1
 * referencing people: @AviralGarg1993
 
 [1]:http://aviralgarg.com
