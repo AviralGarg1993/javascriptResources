@@ -1,4 +1,4 @@
-# Kotlin Reference Sheet
+# Kotlin
 
 This reference summarizes several topics covered in a [Udacity Course][1] in the form of code snippets.
 
@@ -11,6 +11,7 @@ This reference summarizes several topics covered in a [Udacity Course][1] in the
 ## Lesson 1
 
 ### Hello Kotlin function
+
 ```kotlin
 fun printHello () {
    println ("Hello Kotlin")
@@ -19,6 +20,7 @@ printHello()
 ```
 
 ### Hello Kotlin program
+
 ```kotlin
 fun main (args: Array<String>) {
   println("Hello ${args[0]} ")

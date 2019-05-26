@@ -1,6 +1,7 @@
-# MarkDown Learning
+# Markdown
 
 ## Text formatting
+
 normal text
 [not a new line]
 
@@ -12,7 +13,8 @@ _italics_
 
 
 ## Links
-4 ways to link (orderered list):
+
+4 ways to link (ordered list):
 
 1. <http://aviralgarg.com>
 
@@ -36,6 +38,7 @@ _italics_
         ![](https://unsplash.it/50/50/?image=1) (opens in new tab)
 
 ## List + code blocks + horizontal rule
+
 Unordered list:
 
  + Code
@@ -55,19 +58,23 @@ Horizontal rule after line break
 ---
 
 ## Table
-|Left-align|Centre-align|Right-align|
-|:---------|:----------:|----------:|
-|':--'above|decides the |alignment  |
+
+| Left-align | Centre-align | Right-align |
+| :--------- | :----------: | ----------: |
+| ':--'above | decides the  |   alignment |
 
 ## Quotations
+
 > 'The saying'
 > **- Dude who said it**
 
 ## Checkboxes
+
 * [ ] not done
 * [x] finished
 
 ## Github (not working-- added to issues)
+
 * issues: #2
 * pull-request: #1
 * referencing people: @AviralGarg1993
