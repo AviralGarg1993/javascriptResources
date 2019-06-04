@@ -10,32 +10,36 @@ Based on (6/4/2019): https://docs.microsoft.com/en-us/azure/bot-service/bot-buil
 
 - [How bots work](#how-bots-work)
   - [Table Of Contents](#table-of-contents)
-  - [Activities](#activities)
-    - [Flow](#flow)
+  - [Activity](#activity)
+    - [Activity Flow](#activity-flow)
       - [HTTP details](#http-details)
       - [Defining a turn](#defining-a-turn)
-    - [Types](#types)
-      - [Conversation Update](#conversation-update)
-      - [Message](#message)
+    - [Activity Types](#activity-types)
+      - [Conversation Update Activity](#conversation-update-activity)
+      - [Message Activity](#message-activity)
 
 ---
 
-## Activities
+## Activity
 
 - Every { ***channels*** <-> ***bot*** } interactions generates an `activity`.
 
-### Flow
+### Activity Flow
 
 #### HTTP details
 
 `Bot Framework Service` sends info. b/w { ***channels*** <-> ***bot*** } via separate HTTP POST requests.
 
+<!--
 ```nomnoml
 [USER (channel)]->[Azure Bot Service | [Bot Framework Service]]
 [Azure Bot Service | [Bot Framework Service]]->[USER (channel)]
 [Azure Bot Service | [Bot Framework Service]]->[BOT]
 [BOT]->[Azure Bot Service |[Bot Framework Service]]
 ```
+-->
+
+<img src="../resources/images/ActivityFlow.png " alt="ConversationUpdateandMessage" width="250"/>
 
 Both are acknowledged with 200 HTTP status code.
 
@@ -52,20 +56,20 @@ Both are acknowledged with 200 HTTP status code.
   - channel
   - other data needed to process the activity
 - `turn context` is one of the most important abstractions in the SDK.
-- It carries/provides mechanism for:
+- It carries/provides mechanism for sending:
   - ***inbound activity*** to `middleware components` + `application logic`
   - ***outbound activities*** from `middleware components` + `application logic`
 
-### Types
+### Activity Types
 
-#### Conversation Update
+#### Conversation Update Activity
 
 - (httpDiagram below) On start, 2 ***conversation update*** activities when:
   - User joins (via channel)
   - Bot joins
 - To distinguish these activities, check whether `members added` property includes a member other than the ***bot***.
 
-#### Message
+#### Message Activity
 
 A ***Message Activity*** could carry:
 
@@ -73,5 +77,3 @@ A ***Message Activity*** could carry:
 - Text-to-be-spoken
 - Suggested actions
 - Cards
-
-[ConversationUpdateandMessage]: "ConversationUpdateandMessage"
