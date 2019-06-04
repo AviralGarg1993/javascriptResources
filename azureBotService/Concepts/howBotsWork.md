@@ -1,8 +1,10 @@
 # How bots work
 
-Applies to SDK v4
-
-Based on (6/4/2019): https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-basics?view=azure-bot-service-4.0&tabs=csharp
+|            |                                                                                                                                                                                                     |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Applies to | SDK v4                                                                                                                                                                                              |
+| Based on   | [Microsoft Docs](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-basics?view=azure-bot-service-4.0&tabs=javascript) and its [GitHub repo](https://github.com/MicrosoftDocs/bot-docs) |
+| TODO       | Keep fetching changes from their GitHub Repo to update your notes.                                                                                                                                  |
 
 ---
 
@@ -17,6 +19,8 @@ Based on (6/4/2019): https://docs.microsoft.com/en-us/azure/bot-service/bot-buil
     - [Activity Types](#activity-types)
       - [Conversation Update Activity](#conversation-update-activity)
       - [Message Activity](#message-activity)
+    - [Activity Processing Stack](#activity-processing-stack)
+  - [Resources on corresponding microsoft document](#resources-on-corresponding-microsoft-document)
 
 ---
 
@@ -30,7 +34,7 @@ Based on (6/4/2019): https://docs.microsoft.com/en-us/azure/bot-service/bot-buil
 
 `Bot Framework Service` sends info. b/w { ***channels*** <-> ***bot*** } via separate HTTP POST requests.
 
-<!--
+<!-- TODO: Update the ActivityFlow.png image when you update this code
 ```nomnoml
 [USER (channel)]->[Azure Bot Service | [Bot Framework Service]]
 [Azure Bot Service | [Bot Framework Service]]->[USER (channel)]
@@ -39,13 +43,14 @@ Based on (6/4/2019): https://docs.microsoft.com/en-us/azure/bot-service/bot-buil
 ```
 -->
 
-<img src="../resources/images/ActivityFlow.png " alt="ConversationUpdateandMessage" width="250"/>
+<!-- Extra image created since the above code doesn't render on GitHub -->
+<img src="../../resources/images/ActivityFlow.png" alt="ActivityFlow" width="250"/>
 
 Both are acknowledged with 200 HTTP status code.
 
 > **Little confused about bold text in here:** The protocol doesn’t specify the order in which these POST requests and their acknowledgments are made. However, to fit with common HTTP service frameworks, typically these requests are nested, meaning that the outbound HTTP request is made from the bot **within the scope of the inbound HTTP request**. This pattern is illustrated in the diagram above. Since there are two distinct HTTP connections back to back, **the security model must provide for both.**
 
-<img src="../resources/images/ConversationUpdateandMessage.png " alt="ConversationUpdateandMessage" width="500"/>
+<img src="../../resources/images/ConversationUpdateandMessage.png" alt="ConversationUpdateandMessage" width="500"/>
 
 #### Defining a turn
 
@@ -77,3 +82,11 @@ A ***Message Activity*** could carry:
 - Text-to-be-spoken
 - Suggested actions
 - Cards
+
+### Activity Processing Stack
+
+<img src="../../resources/images/bot-builder-activity-processing-stack.png" alt="ConversationUpdateandMessage" width="500"/>
+
+## Resources on corresponding microsoft document
+
+- [Welcoming the user](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-welcome-user?view=azure-bot-service-4.0)
