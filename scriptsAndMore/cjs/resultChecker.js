@@ -4,6 +4,7 @@ function func() {
     alert(`result is out`);
   } else {
     // empty cache and hard refresh (hopefully)
+    // NOTE: disable cache Ctrl + Shift + j > Network > Disable Cache checkbox
     location.reload(true);
   }
 }
