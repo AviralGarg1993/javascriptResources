@@ -1,5 +1,7 @@
 function func() {
-  if(window.find(`119242`)){
+  
+  
+  if(window.find(`119242`)||window.find(`list`)){
     document.title = 'result is out';
     alert(`result is out`);
   } else {
